@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Menu, MessageCircle, Mail, HelpCircle, ChevronRight } from 'lucide-react';
 
+// GitHub Release URL for large video files
+const VIDEO_BASE_URL = "https://github.com/chitwan101e-ship-it/Juwa2/releases/download/v1.0.0";
+
 const Section = ({ id, title, children, subtitle }) => (
   <section id={id} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
     <div className="mb-8">
@@ -28,10 +31,8 @@ export default function Contact() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    alert('Message sent successfully!');
-    setFormData({ email: '', message: '' });
+    // FormSubmit.co will handle the submission
+    // No need to prevent default - let the form submit naturally
   };
 
   const handleSupportClick = (type) => {
@@ -137,7 +138,10 @@ export default function Contact() {
             
             {/* Left Column - Contact Form */}
             <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 shadow-2xl h-full">
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form action="https://formsubmit.co/Venneshahumb@gmail.com" method="POST" className="space-y-4">
+                <input type="hidden" name="_subject" value="New Contact Form Submission from Juwa2Casino" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
                 {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-white text-sm font-medium mb-1">
@@ -250,7 +254,7 @@ export default function Contact() {
               loop
               playsInline
             >
-              <source src="./videos/footer3.mp4" type="video/mp4" />
+              <source src={`${VIDEO_BASE_URL}/footer3.mp4`} type="video/mp4" />
             </video>
             
             {/* Dark overlay for text readability */}

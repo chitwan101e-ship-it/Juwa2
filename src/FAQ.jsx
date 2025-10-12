@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Menu, Plus, Minus } from 'lucide-react';
 
+// GitHub Release URL for large video files
+const VIDEO_BASE_URL = "https://github.com/chitwan101e-ship-it/Juwa2/releases/download/v1.0.0";
+
 const Section = ({ id, title, children, subtitle }) => (
   <section id={id} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
     <div className="mb-8">
@@ -207,7 +210,7 @@ export default function FAQ() {
               loop
               playsInline
             >
-              <source src="./videos/footer3.mp4" type="video/mp4" />
+              <source src={`${VIDEO_BASE_URL}/footer3.mp4`} type="video/mp4" />
             </video>
             
             {/* Dark overlay for text readability */}
