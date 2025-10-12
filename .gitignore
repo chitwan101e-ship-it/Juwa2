@@ -1,8 +1,8 @@
 # Dependencies
 node_modules/
 
-# Build outputs (commented out for GitHub Pages deployment)
-# dist/
+# Build outputs (GitHub Actions will build this)
+dist/
 
 # Logs
 *.log
