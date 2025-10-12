@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Edge Performance Optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force hardware acceleration for better Edge performance */
+video, canvas, img {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize animations for Edge */
+.transition-all, .transition-colors, .transition-transform {
+  transform: translateZ(0);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+* { box-sizing: border-box; }
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.text-shadow-lg {
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-in-out;
+}
+
+/* Force mobile stacking for community section */
+@media (max-width: 767px) {
+  .mobile-stack {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .mobile-stack > * {
+    width: 100% !important;
+  }
+}
+
+/* Force mobile stacking for promotions section */
+@media (max-width: 767px) {
+  .promo-mobile-stack {
+    flex-direction: column !important;
+  }
+  
+  .promo-mobile-stack > * {
+    width: 100% !important;
+  }
+}
