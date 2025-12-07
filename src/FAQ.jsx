@@ -104,7 +104,7 @@ export default function FAQ() {
           </nav>
           <div className="flex items-center gap-3">
             <button onClick={() => window.navigate('/contact/faq')} className="hidden md:inline-flex px-4 py-2 rounded-xl border border-zinc-800 hover:bg-zinc-900 text-sm text-white">FAQ</button>
-            <a href="https://www.facebook.com/people/Clash-Casino-Games/61579792407380/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-sm">Sign up</a>
+            <a href="https://www.facebook.com/people/Juwa-Jackpot-quest/61584448090525/?mibextid=wwXIfr&rdid=pchM95SHscZP5Dqz&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1HHSeBWNmn%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-sm">Sign up</a>
           </div>
         </div>
         
