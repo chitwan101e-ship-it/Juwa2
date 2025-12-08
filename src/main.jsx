@@ -5,6 +5,7 @@ import About from './About'
 import Contact from './Contact'
 import Blog from './Blog'
 import FAQ from './FAQ'
+import FloatingMessenger from './FloatingMessenger'
 import './index.css'
 
 // Navigation function to handle client-side routing
@@ -43,23 +44,16 @@ function Router() {
   // Handle anchor links by extracting the pathname
   const pathname = currentPath.split('#')[0];
 
-  if (pathname === '/about') {
-    return <About />;
-  }
-  
-  if (pathname === '/contact') {
-    return <Contact />;
-  }
-  
-  if (pathname === '/blog') {
-    return <Blog />;
-  }
-  
-  if (pathname === '/contact/faq') {
-    return <FAQ />;
-  }
-  
-  return <App />;
+  return (
+    <>
+      {pathname === '/about' && <About />}
+      {pathname === '/contact' && <Contact />}
+      {pathname === '/blog' && <Blog />}
+      {pathname === '/contact/faq' && <FAQ />}
+      {pathname !== '/about' && pathname !== '/contact' && pathname !== '/blog' && pathname !== '/contact/faq' && <App />}
+      <FloatingMessenger />
+    </>
+  );
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(

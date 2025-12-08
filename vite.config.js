@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/', // For custom domain
   server: {
-    port: 4175,
+    port: 4174,
     fs: {
       allow: ['..']
     }
