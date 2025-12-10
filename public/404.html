@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Juwa2Casino</title>
+    <meta http-equiv="refresh" content="0;url=/?/%PATH%">
     <script>
       // Single Page Apps for GitHub Pages
       // https://github.com/rafgraph/spa-github-pages
@@ -13,16 +14,32 @@
         var l = window.location;
         
         // Redirect to index.html with the path as a query parameter
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
           l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
           l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
           (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-        );
+          l.hash;
+        
+        // Update meta refresh with actual path
+        var metaRefresh = document.querySelector('meta[http-equiv="refresh"]');
+        if (metaRefresh) {
+          metaRefresh.content = '0;url=' + redirectUrl;
+        }
+        
+        // Also do JavaScript redirect as fallback
+        l.replace(redirectUrl);
       })();
     </script>
   </head>
   <body>
+    <p>Redirecting...</p>
+    <script>
+      // Fallback: if JavaScript didn't redirect, try meta refresh
+      setTimeout(function() {
+        window.location.href = '/?/' + window.location.pathname.slice(1).replace(/&/g, '~and~') + 
+          (window.location.search ? '&' + window.location.search.slice(1).replace(/&/g, '~and~') : '') +
+          window.location.hash;
+      }, 100);
+    </script>
   </body>
 </html>
