@@ -1,8 +1,30 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { copyFileSync } from 'fs'
+import { join } from 'path'
+
+// Plugin to copy index.html to 404.html after build
+// This ensures GitHub Pages serves the SPA correctly for all routes
+function copy404Plugin() {
+  return {
+    name: 'copy-404',
+    closeBundle() {
+      const distPath = join(process.cwd(), 'dist')
+      const indexPath = join(distPath, 'index.html')
+      const notFoundPath = join(distPath, '404.html')
+      
+      try {
+        copyFileSync(indexPath, notFoundPath)
+        console.log('✅ Copied index.html to 404.html for GitHub Pages SPA routing')
+      } catch (error) {
+        console.error('❌ Failed to copy index.html to 404.html:', error)
+      }
+    }
+  }
+}
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), copy404Plugin()],
   base: '/', // For custom domain
   server: {
     port: 4174,
