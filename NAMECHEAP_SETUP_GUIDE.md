@@ -122,3 +122,4 @@ If you want email for your domain:
 4. Monitor domain status in Namecheap
 5. Test website accessibility from different locations
 
+
