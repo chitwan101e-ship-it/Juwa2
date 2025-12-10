@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Juwa2Casino</title>
+    <title>Juwa2Casino - Redirecting...</title>
     <script>
       // Single Page Apps for GitHub Pages
       // https://github.com/rafgraph/spa-github-pages
@@ -12,28 +12,36 @@
         var pathSegmentsToKeep = 0;
         var l = window.location;
         
-        // Redirect to index.html with the path as a query parameter
-        var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash;
+        // Build the redirect URL
+        var path = l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~');
+        var search = l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '';
+        var hash = l.hash;
+        var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?/' + path + search + hash;
         
-        // Immediate redirect - no delay
+        // Use meta refresh for crawlers (works even if JS is disabled)
+        var meta = document.createElement('meta');
+        meta.httpEquiv = 'refresh';
+        meta.content = '0;url=' + redirectUrl;
+        document.head.appendChild(meta);
+        
+        // Immediate JavaScript redirect as well
         l.replace(redirectUrl);
       })();
     </script>
     <noscript>
-      <meta http-equiv="refresh" content="0;url=/?/%PATH%">
+      <meta http-equiv="refresh" content="0;url=/">
     </noscript>
   </head>
   <body>
     <p>Redirecting...</p>
     <script>
-      // Immediate fallback redirect
-      window.location.replace('/?/' + window.location.pathname.slice(1).replace(/&/g, '~and~') + 
-        (window.location.search ? '&' + window.location.search.slice(1).replace(/&/g, '~and~') : '') +
-        window.location.hash);
+      // Additional fallback - redirect immediately
+      (function() {
+        var path = window.location.pathname.slice(1).replace(/&/g, '~and~');
+        var search = window.location.search ? '&' + window.location.search.slice(1).replace(/&/g, '~and~') : '';
+        var hash = window.location.hash;
+        window.location.replace('/?/' + path + search + hash);
+      })();
     </script>
   </body>
 </html>
