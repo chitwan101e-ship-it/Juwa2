@@ -247,7 +247,7 @@ export default function App() {
               <Menu className="w-5 h-5" />
             </button>
             <a href="#" className="flex items-center gap-2">
-                <img src="./pictures/icons/logo2.png" alt="Juwa2Casino" className="w-14 h-14" />
+                <img src="./pictures/icons/logo2.png" alt="Juwa2Casino - Juwa 2.0 Download Link" className="w-14 h-14" loading="eager" />
               <span className="font-bold text-lg">
                 Juwa2<span className="text-emerald-400">Casino</span>
               </span>
@@ -383,11 +383,11 @@ export default function App() {
               <Megaphone className="w-4 h-4" /> New: Cashback Fridays up to 10%
             </div>
             <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-shadow-lg">
-              Vegas‑grade thrills,
-              <span className="text-emerald-400"> anywhere.</span>
+              Juwa 2.0 Download Link
+              <span className="text-emerald-400"> & Juwa777 APK</span>
             </h1>
             <p className="mt-3 text-zinc-300 text-lg text-shadow" data-testid="hero-tagline">
-              Spin, splash, and score your next big moment. No agent, no hassle—just you.
+              Get the latest Juwa 2.0 download link and Juwa777 APK download free for Android & iOS. DL Juwa 777 and play 100+ slots, fish games, and keno with real money payouts.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="https://m.juwa2.xin/v1/user/register?code=1AZu1F" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold">
@@ -408,8 +408,9 @@ export default function App() {
                     <div key={`${imageName}-${gridRotationKey}-${i}`} className="aspect-[16/9] overflow-hidden group relative">
                       <img 
                          src={`./pictures/Games/${imageName}`}
-                        alt={`Game ${i + 1}`}
+                        alt={`${imageName.replace('.png', '')} - Juwa 2.0 Casino Game`}
                         className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
                         onError={(e) => {
                           const target = e.currentTarget;
                           target.style.display = 'none';
@@ -688,8 +689,9 @@ export default function App() {
                   <div key={index} className="flex-shrink-0 w-48 h-32 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300">
                     <img 
                       src={`/pictures/Games/${game.image}`}
-                      alt={game.name}
+                      alt={`${game.name} - Juwa 2.0 Slots Game`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.backgroundColor = '#374151';
                         e.target.style.display = 'flex';
@@ -748,8 +750,9 @@ export default function App() {
                   <div key={index} className="flex-shrink-0 w-48 h-32 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300">
                     <img 
                       src={`/pictures/Games/${game.image}`}
-                      alt={game.name}
+                      alt={`${game.name} - Juwa 2.0 Slots Game`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.backgroundColor = '#374151';
                         e.target.style.display = 'flex';
@@ -807,8 +810,9 @@ export default function App() {
                   <div key={index} className="flex-shrink-0 w-48 h-32 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300">
                     <img 
                       src={`/pictures/Games/${game.image}`}
-                      alt={game.name}
+                      alt={`${game.name} - Juwa 2.0 Slots Game`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.backgroundColor = '#374151';
                         e.target.style.display = 'flex';
@@ -881,8 +885,9 @@ export default function App() {
             <div className="w-full md:w-auto flex justify-center md:justify-start order-2 -mt-8 md:-mt-12">
               <img 
                 src="./pictures/icons/playonthego1.png" 
-                alt="Play on the Go" 
+                alt="Juwa 2.0 Mobile Gaming - Play on the Go Android iOS" 
                 className="w-full max-w-md md:max-w-md object-contain"
+                loading="lazy"
               />
             </div>
             </div>
@@ -917,7 +922,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-4 gap-8 text-sm">
           <div>
             <div className="flex items-center gap-2">
-              <img src="./pictures/icons/logo2.png" alt="Juwa2Casino" className="w-12 h-12" />
+              <img src="./pictures/icons/logo2.png" alt="Juwa2Casino Logo - Juwa 2.0 Casino" className="w-12 h-12" loading="lazy" />
               <span className="font-bold text-white">Juwa2<span className="text-emerald-400">Casino</span></span>
             </div>
           </div>

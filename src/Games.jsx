@@ -165,8 +165,9 @@ const Games = ({ onBackToHome }) => {
                 <div className="aspect-[4/5] relative">
                   <img
                     src={`./pictures/Games/${gameName}`}
-                    alt={gameName.replace('.png', '')}
+                    alt={`${gameName.replace('.png', '')} - Juwa 2.0 Casino Game Play Online`}
                     className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
                     onError={(e) => {
                       // Handle image load error silently
                       const target = e.currentTarget;

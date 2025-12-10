@@ -6,6 +6,7 @@ export default defineConfig({
   base: '/', // For custom domain
   server: {
     port: 4174,
+    host: '0.0.0.0', // Listen on all network interfaces
     fs: {
       allow: ['..']
     }

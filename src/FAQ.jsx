@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, Plus, Minus } from 'lucide-react';
 
 // GitHub Release URL for large video files
@@ -29,7 +29,64 @@ export default function FAQ() {
     }));
   };
 
+  // Add FAQPage structured data for SEO
+  useEffect(() => {
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqData.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer.replace(/\n/g, ' ').replace(/✅|🎰|🐟|🎲|💳|🎡|💸|🎁/g, '')
+        }
+      }))
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   const faqData = [
+    {
+      question: "Juwa 2.0 download link Android - How to download?",
+      answer: "To get the Juwa 2.0 download link for Android, visit our official website and click the download button. The APK file will be downloaded directly to your Android device. Make sure to enable 'Install from Unknown Sources' in your Android settings before installing."
+    },
+    {
+      question: "Juwa 2.0 download link APK - Where to get it?",
+      answer: "You can get the Juwa 2.0 download link APK from our official website. The latest version APK is available for free download. Simply click the download button and follow the installation instructions for your Android device."
+    },
+    {
+      question: "Juwa 2.0 download Link iOS - How to install on iPhone?",
+      answer: "For iOS devices, Juwa 2.0 download link iOS is available through our official website. Since it's not on the App Store, you'll need to download it via Safari browser and install using a configuration profile. Follow our step-by-step guide in the blog section for detailed instructions."
+    },
+    {
+      question: "Juwa777 2.0 download for Android APK latest version - Where to download?",
+      answer: "Get the Juwa777 2.0 download for Android APK latest version from our official website. We provide the most recent version with all updates and bug fixes. The download is free and takes just a few minutes to complete."
+    },
+    {
+      question: "Juwa 2.0 Download APK latest version uptodown - Is it available?",
+      answer: "While Juwa 2.0 may be available on various platforms, we recommend downloading directly from our official website to ensure you get the latest version with security updates and the most recent features. Our official download is always up-to-date and verified safe."
+    },
+    {
+      question: "Juwa 2 download - How to get started?",
+      answer: "To download Juwa 2, visit our official website and click the download button. Choose your platform (Android or iOS) and follow the installation instructions. The download is free and the app is ready to use immediately after installation."
+    },
+    {
+      question: "Juwa 2.0 online login - How to access my account?",
+      answer: "To login to Juwa 2.0 online, open the app and enter your registered email or username and password. If you've forgotten your password, use the 'Forgot Password' link to reset it. You can also access your account through our website if you prefer web-based login."
+    },
+    {
+      question: "M Juwa2 - What does this mean?",
+      answer: "M Juwa2 typically refers to the mobile version of Juwa2. Our platform is fully optimized for mobile devices, offering the same features and games on both Android and iOS. You can download the mobile app (M Juwa2) from our official website."
+    },
     {
       question: "What is Juwa2?",
       answer: "Juwa2 is a next-generation social casino-style gaming platform for Android and iOS users. It offers a variety of exciting interactive games that blend fun, skill, and chance — all with full transparency and player control."

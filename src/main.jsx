@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import About from './About'
 import Contact from './Contact'
 import Blog from './Blog'
+import BlogPost from './BlogPost'
 import FAQ from './FAQ'
 import FloatingMessenger from './FloatingMessenger'
 import './index.css'
 
-// Navigation function to handle client-side routing
-function navigate(path) {
-  window.history.pushState({}, '', path);
-  window.dispatchEvent(new PopStateEvent('popstate'));
-}
-
-// Make navigate function globally available
-window.navigate = navigate;
-
 // Router component with proper state management
 function Router() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  // Navigation function to handle client-side routing
+  const navigate = useCallback((path) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+  }, []);
+
+  // Make navigate function globally available
+  useEffect(() => {
+    window.navigate = navigate;
+  }, [navigate]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -44,13 +47,18 @@ function Router() {
   // Handle anchor links by extracting the pathname
   const pathname = currentPath.split('#')[0];
 
+  // Check if it's a blog post route
+  const isBlogPost = pathname.startsWith('/blog/') && pathname !== '/blog';
+  const blogSlug = isBlogPost ? pathname.replace('/blog/', '') : null;
+
   return (
     <>
       {pathname === '/about' && <About />}
       {pathname === '/contact' && <Contact />}
+      {isBlogPost && <BlogPost slug={blogSlug} />}
       {pathname === '/blog' && <Blog />}
       {pathname === '/contact/faq' && <FAQ />}
-      {pathname !== '/about' && pathname !== '/contact' && pathname !== '/blog' && pathname !== '/contact/faq' && <App />}
+      {pathname !== '/about' && pathname !== '/contact' && pathname !== '/blog' && !isBlogPost && pathname !== '/contact/faq' && <App />}
       <FloatingMessenger />
     </>
   );

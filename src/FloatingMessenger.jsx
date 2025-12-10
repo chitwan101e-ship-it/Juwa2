@@ -26,9 +26,12 @@ export default function FloatingMessenger() {
         {/* Messenger Icon Button */}
         <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110 p-2">
           <img 
-            src="./pictures/icons/Messenger_Icon_Primary_Blue.svg" 
+            src="/pictures/icons/Messenger_Icon_Primary_Blue.svg" 
             alt="Messenger" 
             className="w-full h-full object-contain"
+            onError={(e) => {
+              console.error('Failed to load Messenger icon:', e.target.src);
+            }}
           />
         </div>
       </div>
@@ -41,9 +44,12 @@ export default function FloatingMessenger() {
         {/* Telegram Icon Button */}
         <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110 p-2">
           <img 
-            src="./pictures/icons/telegram-svgrepo-com.svg" 
+            src="/pictures/icons/telegram-svgrepo-com.svg" 
             alt="Telegram" 
             className="w-full h-full object-contain"
+            onError={(e) => {
+              console.error('Failed to load Telegram icon:', e.target.src);
+            }}
           />
         </div>
       </div>

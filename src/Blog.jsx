@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu } from 'lucide-react';
+import { Menu, TrendingUp, Circle, Fish, Gamepad2, Gift, Lock, Download, Smartphone } from 'lucide-react';
 
 // GitHub Release URL for large video files
 const VIDEO_BASE_URL = "https://github.com/chitwan101e-ship-it/Juwa2/releases/download/v1.0.0";
@@ -35,7 +35,7 @@ export default function Blog() {
               <Menu className="w-5 h-5 text-white" />
             </button>
                     <button onClick={() => window.navigate('/')} className="flex items-center gap-2">
-                <img src="./pictures/icons/logo2.png" alt="Juwa2Casino" className="w-14 h-14" />
+                <img src="./pictures/icons/logo2.png" alt="Juwa2Casino - Juwa 2.0 Download Link" className="w-14 h-14" loading="eager" />
               <span className="font-bold text-lg text-white">
                 Juwa2<span className="text-emerald-400">Casino</span>
               </span>
@@ -89,50 +89,52 @@ export default function Blog() {
       {/* Main Content */}
       <main className="bg-zinc-950 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* COMING SOON Banner */}
-          <div className="bg-black text-zinc-400 text-center py-8 mb-12">
-            <h2 className="text-2xl font-semibold">COMING SOON</h2>
-          </div>
-
           {/* Latest from the Blog */}
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">Latest from the Blog</h2>
             
             <div className="grid md:grid-cols-3 gap-6">
-              {/* Blog Post 1 */}
-              <article className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
-                <div className="h-48 bg-zinc-800"></div>
+              {/* Blog Post 1 - Juwa 2.0 Download Guide */}
+              <article className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-emerald-500 transition-colors">
+                <div className="h-48 bg-zinc-800 overflow-hidden">
+                  <img src="./pictures/icons/Juwa2.0_interface-1536x691.webp" alt="Juwa 2.0 Download Link Android iOS - Casino Gaming Interface" className="w-full h-full object-cover" loading="lazy" width="1536" height="691" />
+                </div>
                 <div className="p-6">
-                  <div className="text-emerald-400 text-sm font-medium mb-2">Casino Tips</div>
-                  <h3 className="text-white font-bold text-lg mb-3">Choosing high-volatility slots</h3>
-                  <p className="text-zinc-400 text-sm mb-4">Quick tips and strategies to improve your experience and understand the odds.</p>
-                  <a href="#" className="text-blue-400 text-sm hover:text-blue-300">Read more →</a>
+                  <div className="text-emerald-400 text-sm font-medium mb-2">Download Guide</div>
+                  <h3 className="text-white font-bold text-lg mb-3">Juwa 2.0 Download Free Android & iOS – Experience Gaming Like Never Before</h3>
+                  <p className="text-zinc-400 text-sm mb-4">Discover the latest version of Juwa 2.0 with improved features, smoother gameplay, and a wide range of casino-style games. Learn how to download for Android and iOS devices.</p>
+                  <button onClick={() => window.navigate('/blog/juwa-2-0-download-guide')} className="text-blue-400 text-sm hover:text-blue-300">Read more →</button>
                 </div>
               </article>
 
-              {/* Blog Post 2 */}
-              <article className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
-                <div className="h-48 bg-zinc-800"></div>
+              {/* Blog Post 2 - Complete Guide */}
+              <article className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-emerald-500 transition-colors">
+                <div className="h-48 bg-zinc-800 overflow-hidden">
+                  <img src="./pictures/icons/juwa2 (1).webp" alt="Juwa777 2.0 Download APK Latest Version - Slots Fish Games Keno" className="w-full h-full object-cover" loading="lazy" />
+                </div>
                 <div className="p-6">
-                  <div className="text-emerald-400 text-sm font-medium mb-2">Casino Tips</div>
-                  <h3 className="text-white font-bold text-lg mb-3">Beginner's guide to fish games</h3>
-                  <p className="text-zinc-400 text-sm mb-4">Quick tips and strategies to improve your experience and understand the odds.</p>
-                  <a href="#" className="text-blue-400 text-sm hover:text-blue-300">Read more →</a>
+                  <div className="text-emerald-400 text-sm font-medium mb-2">Getting Started</div>
+                  <h3 className="text-white font-bold text-lg mb-3">Complete Guide to JUWA2.0 Casino: Download, Play, and Claim Bonuses</h3>
+                  <p className="text-zinc-400 text-sm mb-4">Learn everything you need to know about downloading JUWA2.0, mobile compatibility, and how to claim bonuses to maximize your gaming experience.</p>
+                  <button onClick={() => window.navigate('/blog/juwa-2-0-complete-guide')} className="text-blue-400 text-sm hover:text-blue-300">Read more →</button>
                 </div>
               </article>
 
-              {/* Blog Post 3 */}
-              <article className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
-                <div className="h-48 bg-zinc-800"></div>
+              {/* Blog Post 3 - Android APK Guide */}
+              <article className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-emerald-500 transition-colors">
+                <div className="h-48 bg-zinc-800 overflow-hidden">
+                  <img src="./pictures/icons/juwa2.webp" alt="Juwa 2.0 Download APK Free Android - Complete Gaming Platform Guide" className="w-full h-full object-cover" loading="lazy" />
+                </div>
                 <div className="p-6">
-                  <div className="text-emerald-400 text-sm font-medium mb-2">Casino Tips</div>
-                  <h3 className="text-white font-bold text-lg mb-3">How sweepstakes casinos work</h3>
-                  <p className="text-zinc-400 text-sm mb-4">Quick tips and strategies to improve your experience and understand the odds.</p>
-                  <a href="#" className="text-blue-400 text-sm hover:text-blue-300">Read more →</a>
+                  <div className="text-emerald-400 text-sm font-medium mb-2">Android Guide</div>
+                  <h3 className="text-white font-bold text-lg mb-3">Juwa 2.0 Download APK Free For Android - Complete Gaming Platform Guide</h3>
+                  <p className="text-zinc-400 text-sm mb-4">Learn how to download JUWA 2.0 APK for Android, understand premium features, registration process, and how to maximize your earnings through gameplay and referrals.</p>
+                  <button onClick={() => window.navigate('/blog/juwa-2-0-apk-android-guide')} className="text-blue-400 text-sm hover:text-blue-300">Read more →</button>
                 </div>
               </article>
             </div>
           </div>
+
         </div>
       </main>
 
@@ -163,7 +165,7 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-4 gap-8 text-sm">
           <div>
             <div className="flex items-center gap-2">
-              <img src="./pictures/icons/logo2.png" alt="Juwa2Casino" className="w-12 h-12" />
+              <img src="./pictures/icons/logo2.png" alt="Juwa2Casino Logo - Juwa 2.0 Casino" className="w-12 h-12" loading="lazy" />
               <span className="font-bold text-white">Juwa2<span className="text-emerald-400">Casino</span></span>
             </div>
           </div>
