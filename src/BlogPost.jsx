@@ -791,7 +791,7 @@ export default function BlogPost({ slug }) {
               <Menu className="w-5 h-5 text-white" />
             </button>
             <button onClick={() => window.navigate('/')} className="flex items-center gap-2">
-              <img src="./pictures/icons/logo2.png" alt="Juwa2Casino - Juwa 2.0 Download Link" className="w-14 h-14" loading="eager" />
+              <img src="/pictures/icons/logo2.png" alt="Juwa2Casino - Juwa 2.0 Download Link" className="w-14 h-14" loading="eager" />
               <span className="font-bold text-lg text-white">
                 Juwa2<span className="text-emerald-400">Casino</span>
               </span>
@@ -873,7 +873,7 @@ export default function BlogPost({ slug }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-4 gap-8 text-sm">
           <div>
             <div className="flex items-center gap-2">
-              <img src="./pictures/icons/logo2.png" alt="Juwa2Casino Logo - Juwa 2.0 Casino" className="w-12 h-12" loading="lazy" />
+              <img src="/pictures/icons/logo2.png" alt="Juwa2Casino Logo - Juwa 2.0 Casino" className="w-12 h-12" loading="lazy" />
               <span className="font-bold text-white">Juwa2<span className="text-emerald-400">Casino</span></span>
             </div>
           </div>
