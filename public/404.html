@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Juwa2Casino</title>
-    <meta http-equiv="refresh" content="0;url=/">
     <script>
       // Single Page Apps for GitHub Pages
       // https://github.com/rafgraph/spa-github-pages
@@ -20,26 +19,21 @@
           (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
           l.hash;
         
-        // Update meta refresh with actual path
-        var metaRefresh = document.querySelector('meta[http-equiv="refresh"]');
-        if (metaRefresh) {
-          metaRefresh.content = '0;url=' + redirectUrl;
-        }
-        
-        // Also do JavaScript redirect as fallback
+        // Immediate redirect - no delay
         l.replace(redirectUrl);
       })();
     </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=/?/%PATH%">
+    </noscript>
   </head>
   <body>
     <p>Redirecting...</p>
     <script>
-      // Fallback: if JavaScript didn't redirect, try meta refresh
-      setTimeout(function() {
-        window.location.href = '/?/' + window.location.pathname.slice(1).replace(/&/g, '~and~') + 
-          (window.location.search ? '&' + window.location.search.slice(1).replace(/&/g, '~and~') : '') +
-          window.location.hash;
-      }, 100);
+      // Immediate fallback redirect
+      window.location.replace('/?/' + window.location.pathname.slice(1).replace(/&/g, '~and~') + 
+        (window.location.search ? '&' + window.location.search.slice(1).replace(/&/g, '~and~') : '') +
+        window.location.hash);
     </script>
   </body>
 </html>
