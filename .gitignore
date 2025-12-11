@@ -2,7 +2,7 @@
 node_modules/
 
 # Build outputs (GitHub Actions will build this)
-dist/
+# dist/  # Commented out to include dist files in repository
 
 # Logs
 *.log
