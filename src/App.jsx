@@ -390,7 +390,7 @@ export default function App() {
               Get the latest Juwa 2.0 download link and Juwa777 APK download free for Android & iOS. DL Juwa 777 and play 100+ slots, fish games, and keno with real money payouts.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="https://m.juwa2.xin/v1/user/register?code=1AZu1F" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold">
+              <a href="https://m.juwa2.xin/v1/user/register?code=1AZYlg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold">
                 Play Directly <ChevronRight className="w-4 h-4" />
               </a>
               <a href="https://www.facebook.com/people/Juwa-Jackpot-quest/61584448090525/?mibextid=wwXIfr&rdid=LxxlfG7JeVDYrcCU&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1G81hrse4X%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl border border-zinc-800 hover:bg-zinc-900">
