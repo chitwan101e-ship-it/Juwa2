@@ -3,36 +3,7 @@ import react from '@vitejs/plugin-react'
 import { copyFileSync, readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { join } from 'path'
 
-// Blog posts metadata for static HTML generation
-const blogPostsMetadata = {
-  'juwa-2-0-download-guide': {
-    title: 'Juwa 2.0 Download Free Android & iOS – Experience Gaming Like Never Before',
-    description: 'Discover the latest version of Juwa 2.0 with improved features, smoother gameplay, and a wide range of casino-style games. Learn how to download for Android and iOS devices. Get the Juwa 2.0 download link APK and iOS installation guide.',
-    keywords: 'juwa 2.0 download, juwa 2.0 download link android, juwa 2.0 download link ios, juwa 2.0 download apk, juwa 2.0 download free, clash casino juwa 2.0, juwa 2.0 apk download, juwa777 2.0 download, juwa 2.0 android, juwa 2.0 ios',
-    category: 'Download Guide',
-    date: 'October 2025',
-    image: 'https://juwa2casino.com/pictures/icons/Juwa2.0_interface-1536x691.webp',
-    slug: 'juwa-2-0-download-guide'
-  },
-  'juwa-2-0-complete-guide': {
-    title: 'Complete Guide to JUWA2.0 Casino: Download, Play, and Claim Bonuses',
-    description: 'Comprehensive guide to JUWA2.0 Casino. Learn how to download, play games, claim bonuses, and maximize your gaming experience. Get step-by-step instructions for Android and iOS installation, bonus claiming process, and tips for responsible gaming.',
-    keywords: 'juwa2.0 casino, juwa 2.0 casino guide, juwa 2.0 download guide, juwa 2.0 bonuses, juwa 2.0 how to play, juwa 2.0 casino review, juwa 2.0 mobile casino, juwa 2.0 gaming platform',
-    category: 'Getting Started',
-    date: 'October 2025',
-    image: 'https://juwa2casino.com/pictures/icons/Juwa2.0_interface-1536x691.webp',
-    slug: 'juwa-2-0-complete-guide'
-  },
-  'juwa-2-0-apk-android-guide': {
-    title: 'Juwa 2.0 Download APK Free For Android - Complete Gaming Platform Guide',
-    description: 'Complete guide to downloading Juwa 2.0 APK for Android. Learn about the gaming platform, features, account registration, deposits, withdrawals, and how to earn real dollars. Get step-by-step Android installation instructions.',
-    keywords: 'juwa 2.0 apk download, juwa 2.0 download apk android, juwa 2.0 apk free download, juwa 2.0 android guide, juwa 2.0 apk latest version, juwa777 2.0 download for android apk latest version, juwa 2.0 game apk, juwa 2.0 android installation',
-    category: 'Android Guide',
-    date: 'October 2025',
-    image: 'https://juwa2casino.com/pictures/icons/Juwa2.0_interface-1536x691.webp',
-    slug: 'juwa-2-0-apk-android-guide'
-  }
-}
+import { blogPostsMetadata } from './blog-posts-metadata.js'
 
 // Plugin to copy index.html to 404.html after build
 // This ensures GitHub Pages serves the SPA correctly for all routes
@@ -67,6 +38,19 @@ function generateBlogPostsPlugin() {
         // Read the base index.html
         const baseHtml = readFileSync(indexPath, 'utf-8')
         
+        const entryAssets = baseHtml.match(/<(?:script|link)\b[^>]*(?:src|href)="\/assets\/[^"]+"[^>]*>(?:<\/script>)?/g)
+        if (!entryAssets?.length) throw new Error('Missing entry assets in built index.html')
+        for (const page of ['blog.html', 'games.html', 'about.html', 'contact.html', 'contact/faq.html']) {
+          const template = readFileSync(join(process.cwd(), 'public', page), 'utf-8')
+          const html = template.replace('<script type="module" src="/src/main.jsx"></script>', entryAssets.join('\n    '))
+          const target = join(distPath, page)
+          mkdirSync(join(target, '..'), { recursive: true })
+          writeFileSync(target, html)
+          const indexTarget = join(distPath, page.replace(/\.html$/, ''), 'index.html')
+          mkdirSync(join(indexTarget, '..'), { recursive: true })
+          writeFileSync(indexTarget, html)
+        }
+
         // Create blog directory if it doesn't exist
         mkdirSync(blogDir, { recursive: true })
         
@@ -90,7 +74,7 @@ function generateBlogPostsPlugin() {
                 "url": "https://juwa2casino.com/pictures/icons/logo2.png"
               }
             },
-            "datePublished": "2025-10-01",
+            "datePublished": metadata.published || "2025-10-01",
             "dateModified": new Date().toISOString().split('T')[0],
             "mainEntityOfPage": {
               "@type": "WebPage",
@@ -119,12 +103,12 @@ function generateBlogPostsPlugin() {
             .replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${url}" />`)
           
           // Add Article structured data before the existing structured data
-          const articleSchemaScript = `    <script type="application/ld+json">
+          const articleSchemaScript = `    <script type="application/ld+json" data-managed-schema="true">
     ${JSON.stringify(articleSchema, null, 2)}
     </script>
     `
           
-          // Insert Article schema before the first structured data script (after the sitemap link)
+          blogHtml = blogHtml.replace(/<script type="application\/ld\+json" data-managed-schema="true">[\s\S]*?<\/script>\s*/g, '')
           blogHtml = blogHtml.replace(
             /    <!-- Structured Data \(JSON-LD\) for Better SEO -->/,
             `    <!-- Structured Data (JSON-LD) for Better SEO -->${articleSchemaScript}`
@@ -133,12 +117,15 @@ function generateBlogPostsPlugin() {
           // Write the blog post HTML file
           const blogHtmlPath = join(blogDir, `${slug}.html`)
           writeFileSync(blogHtmlPath, blogHtml, 'utf-8')
+          const blogIndexPath = join(blogDir, slug, 'index.html')
+          mkdirSync(join(blogIndexPath, '..'), { recursive: true })
+          writeFileSync(blogIndexPath, blogHtml, 'utf-8')
           console.log(`✅ Generated static HTML for blog post: /blog/${slug}.html`)
         })
         
         console.log(`✅ Generated ${Object.keys(blogPostsMetadata).length} blog post HTML files`)
       } catch (error) {
-        console.error('❌ Failed to generate blog post HTML files:', error)
+        throw error
       }
     }
   }

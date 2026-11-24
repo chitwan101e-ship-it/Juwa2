@@ -9,6 +9,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # If the request is for a route (not a file), serve the appropriate HTML file
 RewriteRule ^about$ /about.html [L]
 RewriteRule ^contact$ /contact.html [L]
+RewriteRule ^games/?$ /games.html [L]
+RewriteCond %{DOCUMENT_ROOT}/blog/$1.html -f
+RewriteRule ^blog/([a-z0-9-]+)/?$ /blog/$1.html [L]
 RewriteRule ^blog$ /blog.html [L]
 RewriteRule ^contact/faq$ /contact/faq.html [L]
 

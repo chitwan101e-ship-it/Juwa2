@@ -1,59 +1,14 @@
 import React from 'react';
+import { agentSite, telegram } from './SiteLayout';
 
 export default function FloatingMessenger() {
-  const handleMessengerClick = () => {
-    // Open Facebook Messenger - links to Juwa Jackpot Quest page
-    window.open('https://www.facebook.com/people/Juwa-Jackpot-quest/61584448090525/?mibextid=wwXIfr&rdid=LxxlfG7JeVDYrcCU&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1G81hrse4X%2F%3Fmibextid%3DwwXIfr', '_blank', 'noopener,noreferrer');
-  };
-
-  const handleTelegramClick = () => {
-    // Open Telegram - @juwa2go handle
-    window.open('https://t.me/juwa2go', '_blank', 'noopener,noreferrer');
-  };
-
-  return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-      {/* Messenger Icon Button */}
-      <div 
-        className="relative cursor-pointer group"
-        onClick={handleMessengerClick}
-      >
-        {/* Notification Badge (optional) */}
-        <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center z-10">
-          <span className="text-white text-xs font-bold">1</span>
-        </div>
-        
-        {/* Messenger Icon Button */}
-        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110 p-2">
-          <img 
-            src="/pictures/icons/Messenger_Icon_Primary_Blue.svg" 
-            alt="Messenger" 
-            className="w-full h-full object-contain"
-            onError={(e) => {
-              console.error('Failed to load Messenger icon:', e.target.src);
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Telegram Icon Button */}
-      <div 
-        className="relative cursor-pointer group"
-        onClick={handleTelegramClick}
-      >
-        {/* Telegram Icon Button */}
-        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110 p-2">
-          <img 
-            src="/pictures/icons/telegram-svgrepo-com.svg" 
-            alt="Telegram" 
-            className="w-full h-full object-contain"
-            onError={(e) => {
-              console.error('Failed to load Telegram icon:', e.target.src);
-            }}
-          />
-        </div>
-      </div>
-    </div>
-  );
+  return <aside className="chat-widget" aria-label="Message support">
+    <a className="chat-message" href={agentSite} target="_blank" rel="noopener noreferrer" aria-label="Message">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2c-5.2 0-9.4 3.5-9.4 7.8 0 2.5 1.4 4.7 3.6 6.1-.2 1.1-.7 2.4-1.6 3.3 1.8-.1 3.4-.9 4.4-1.6.9.3 1.9.4 3 .4 5.2 0 9.4-3.5 9.4-7.8S17.2 3.2 12 3.2z" /></svg>
+      <span className="chat-badge" aria-hidden="true">1</span>
+    </a>
+    <a className="chat-telegram" href={telegram} target="_blank" rel="noopener noreferrer" aria-label="Message on Telegram">
+      <img src="/pictures/icons/telegram-svgrepo-com.svg" alt="" />
+    </a>
+  </aside>;
 }
-
